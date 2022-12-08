@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IBrand } from '../shared/models/brands';
 import { IPagination } from '../shared/models/pagination';
+import { IProduct } from '../shared/models/products';
 import { IType } from '../shared/models/productType';
 import { ShopParams } from '../shared/models/shopParams';
 
@@ -32,6 +33,10 @@ export class ShopService {
     return this.http.get<IPagination>(this.baseUrl + 'products', {
       params: params,
     });
+  }
+
+  getProduct(id: number) {
+    return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
   }
 
   getBrands() {
